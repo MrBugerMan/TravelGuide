@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TravelGuide</string>
+    <string name="search_country_hint">Введите название страны</string>
+</resources>
