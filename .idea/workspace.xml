@@ -9,7 +9,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="" />
+    <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="API list, crash program">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/JSONGetByAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/Country.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/Country.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CountryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CountryData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CountryDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_country_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_country_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/each_item_country.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/each_item_country.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,8 +80,8 @@
         <option value="Kotlin Data Class" />
         <option value="Kotlin Object" />
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -103,6 +117,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\parah\AndroidStudioProjects\TravelGuide\app\src\main\res\drawable" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.diplom.travelguide.countrydetails" />
+      <recent name="com.diplom.travelguide.countries" />
     </key>
   </component>
   <component name="RunManager">
@@ -183,5 +201,9 @@
       <updated>1715190018085</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="API list, crash program" />
+    <option name="LAST_COMMIT_MESSAGE" value="API list, crash program" />
   </component>
 </project>

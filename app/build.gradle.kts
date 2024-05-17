@@ -1,3 +1,5 @@
+val transitive = false
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -39,10 +41,20 @@ android {
     }
 }
 
+
 dependencies {
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+    implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2') - для подключения библиотеки интеграции или настраивать Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.github.bumptech.glide:recyclerview-integration:4.14.2") {
+        // Excludes the support library because it's already included by Glide.
+        transitive  // первая строка сверху
+    } // для синхронизации с recyclerView
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.6.1")

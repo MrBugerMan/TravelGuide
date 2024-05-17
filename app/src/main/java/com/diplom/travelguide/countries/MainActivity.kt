@@ -1,16 +1,17 @@
-package com.diplom.travelguide
+package com.diplom.travelguide.countries
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.diplom.travelguide.R
+import com.diplom.travelguide.countrydetails.CountryDetails
 import com.diplom.travelguide.databinding.ActivityMainBinding
-import retrofit2.Retrofit
+import retrofit2.Call
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity(){
 
@@ -40,25 +41,50 @@ class MainActivity : AppCompatActivity(){
 
         })
 
-        val mList = Country.getCountryData()
+        //mList = Country.getCountryData()  // хардкод через объект, заполнение списка вручную, flag: Int
         recyclerView = binding.recyclerViewCountry
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+        getCountries()
 
         countryAdapter = CountryAdapter(mList)
         recyclerView.adapter = countryAdapter
 
         countryAdapter.setOnClickListener(object:
             CountryAdapter.OnClickListener {
-            override fun onClick(position: Int, title: String) {
+            override fun onClick(position: Int, model: CountryData) {
                 val intent = Intent(this@MainActivity, CountryDetails::class.java)
-                intent.putExtra(NEXT_SCREEN, title)
+                intent.putExtra(NEXT_SCREEN, model)
                 startActivity(intent)
             }
         })
 
-        //addToDataList() // заполнение массива перед передачей в адаптер (старая версия)
     }
+
+    private fun getCountries() {
+        Api.retrofitService.getCountries().enqueue(object : retrofit2.Callback<ArrayList<CountryData>> {
+            override fun onResponse(
+                call: Call<ArrayList<CountryData>>,
+                response: Response<ArrayList<CountryData>>
+            ) {
+                if(response.isSuccessful){
+                    recyclerView = recyclerView.apply{
+                        countryAdapter = CountryAdapter(response.body()!!)
+                        layoutManager = recyclerView.layoutManager
+                        adapter = countryAdapter
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ArrayList<CountryData>>, t: Throwable) {
+                t.printStackTrace()
+            }
+
+        })
+    }
+
+
     companion object{
         const val NEXT_SCREEN = "details_screen"}
 
@@ -69,7 +95,7 @@ class MainActivity : AppCompatActivity(){
         if (query != null) {
             val filteredList = ArrayList<CountryData>()
             for (i in mList) {
-                if (i.title.lowercase().contains(query) ) {
+                if (i.country.lowercase().contains(query) ) {
                     filteredList.add(i)
                 }
             }
@@ -81,26 +107,5 @@ class MainActivity : AppCompatActivity(){
         }
     }
 
-    /*// через эту функцию надо заполнить массив Названием стран и их флагами
-    private fun addToDataList() {
-        mList.add(CountryData("Japan", R.drawable.jp))
-        mList.add(CountryData("Russia", R.drawable.ru))
-        mList.add(CountryData("Japan", R.drawable.jp))
-        mList.add(CountryData("Russia", R.drawable.ru))
-        mList.add(CountryData("Japan", R.drawable.jp))
-        mList.add(CountryData("Russia", R.drawable.ru))
-        mList.add(CountryData("Japan", R.drawable.jp))
-        mList.add(CountryData("Japan", R.drawable.jp))
-        mList.add(CountryData("Russia", R.drawable.ru))
-        mList.add(CountryData("Russia", R.drawable.ru))
-        mList.add(CountryData("Japan", R.drawable.jp))
-        mList.add(CountryData("Russia", R.drawable.ru))
-    }*/
-
-
-    /*private fun getNameCity(mList: List<CountryData>){
-        val url = "https://api.countrystatecity.in/v1/countries"
-        val request = Retrofit.Builder()
-    }*/
 
 }
