@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.diplom.travelguide.R
 import com.diplom.travelguide.countrydetails.CountryDetails
 import com.diplom.travelguide.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import retrofit2.Call
 import retrofit2.Response
 
@@ -46,7 +48,14 @@ class MainActivity : AppCompatActivity(){
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        getCountries()
+        Thread{ // отдельный поток для предотвращения краша преложения
+            runBlocking {
+                launch {
+                    getCountries()
+                }
+            }
+        }
+        //getCountries()  // предполагаю краш на этом этапе... использовать корунтины???
 
         countryAdapter = CountryAdapter(mList)
         recyclerView.adapter = countryAdapter
@@ -108,7 +117,4 @@ class MainActivity : AppCompatActivity(){
     }
 
 
-    fun Zaglushkd(){
-        TODO()
-    }
 }

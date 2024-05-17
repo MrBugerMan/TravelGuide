@@ -19,10 +19,11 @@ class CountryAdapter(
     private var onClickListener: OnClickListener? = null
 
     inner class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        /*val flag: ImageView = itemView.findViewById(R.id.flag)
+        /*val flag: ImageView = itemView.findViewById(R.id.flag) // старое решение
         val country: TextView = itemView.findViewById(R.id.name_country)*/
         fun bind(countryData: CountryData) {
-            //val flag: ImageView = itemView.findViewById(R.id.flag)
+            //val flagURL: String = "https://flagsapi.com/${countryData.iso2}/shiny/64.png"
+            //val flag: ImageView = itemView.findViewById(R.id.flag) - добавить/вернуть view
             val country: TextView = itemView.findViewById(R.id.name_country)
             val id: TextView = itemView.findViewById(R.id.id_country)
             val iso2: TextView = itemView.findViewById(R.id.isio)
@@ -30,7 +31,7 @@ class CountryAdapter(
             country.text = countryData.country
             id.text = countryData.id.toString()
             iso2.text = countryData.iso2
-            //Glide.with(flag).load(countryData.flag).into(flag)
+            //Glide.with(flag.context).load(flagURL).into(flag)
         }
     }
 
@@ -45,7 +46,7 @@ class CountryAdapter(
     }
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        /*holder.flag.setImageResource(mList[position].flag)
+        /*holder.flag.setImageResource(mList[position].flag) // старое решение
         holder.country.text = mList[position].country*/
         holder.bind(mList[position])
 

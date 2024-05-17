@@ -12,7 +12,7 @@ private const val BASE_URL: String = "https://api.countrystatecity.in/"
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 private val retrofit = Retrofit.Builder().addConverterFactory(MoshiConverterFactory.create(moshi)).baseUrl(BASE_URL).build()
 
-interface ServiceAPI {
+interface ServiceAPI { // надо зарегаться и вставить ключ
     @GET("v1/countries")
     fun getCountries(): Call<ArrayList<CountryData>>
 }

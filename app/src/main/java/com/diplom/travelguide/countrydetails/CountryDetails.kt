@@ -30,7 +30,8 @@ class CountryDetails: AppCompatActivity() {
             binding.nameCountry.text = mList.country
             binding.idCountry.text = mList.id.toString()
             binding.isio.text = mList.iso2
-            //binding.flag.setImageResource(mList.flag)
+            //binding.flag.setImageResource(mList.flag) // старое решение
+            //Glide.with(flag.context).load(flagURL).into(flag) // это должно быть здесь или в CountryAdapter - 34 строчка
             binding.toolbar.title = mList.country
         }
 
