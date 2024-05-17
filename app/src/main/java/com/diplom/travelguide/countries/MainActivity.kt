@@ -108,4 +108,7 @@ class MainActivity : AppCompatActivity(){
     }
 
 
+    fun Zaglushkd(){
+        TODO()
+    }
 }

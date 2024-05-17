@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/> <!-- подключение к интернету -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> <!-- мониторинг подключения к интернету -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- загрузка изображений из локальных папок -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"

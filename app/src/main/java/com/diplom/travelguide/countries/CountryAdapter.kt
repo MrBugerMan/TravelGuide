@@ -24,8 +24,12 @@ class CountryAdapter(
         fun bind(countryData: CountryData) {
             //val flag: ImageView = itemView.findViewById(R.id.flag)
             val country: TextView = itemView.findViewById(R.id.name_country)
+            val id: TextView = itemView.findViewById(R.id.id_country)
+            val iso2: TextView = itemView.findViewById(R.id.isio)
             //flag.setImageResource(countryData.flag)  // старое решение
             country.text = countryData.country
+            id.text = countryData.id.toString()
+            iso2.text = countryData.iso2
             //Glide.with(flag).load(countryData.flag).into(flag)
         }
     }

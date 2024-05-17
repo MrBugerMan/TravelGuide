@@ -28,6 +28,8 @@ class CountryDetails: AppCompatActivity() {
 
         if(mList != null){
             binding.nameCountry.text = mList.country
+            binding.idCountry.text = mList.id.toString()
+            binding.isio.text = mList.iso2
             //binding.flag.setImageResource(mList.flag)
             binding.toolbar.title = mList.country
         }
