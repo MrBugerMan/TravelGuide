@@ -1,5 +1,6 @@
 package com.diplom.travelguide.countries
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -48,6 +49,9 @@ class MainActivity : AppCompatActivity(){
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        countryAdapter = CountryAdapter(mList)
+        recyclerView.adapter = countryAdapter
+
         Thread{ // отдельный поток для предотвращения краша преложения
             runBlocking {
                 launch {
@@ -56,9 +60,6 @@ class MainActivity : AppCompatActivity(){
             }
         }
         //getCountries()  // предполагаю краш на этом этапе... использовать корунтины???
-
-        countryAdapter = CountryAdapter(mList)
-        recyclerView.adapter = countryAdapter
 
         countryAdapter.setOnClickListener(object:
             CountryAdapter.OnClickListener {
@@ -71,18 +72,29 @@ class MainActivity : AppCompatActivity(){
 
     }
 
+    // функция получения данных стран из API
     private fun getCountries() {
         Api.retrofitService.getCountries().enqueue(object : retrofit2.Callback<ArrayList<CountryData>> {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(
                 call: Call<ArrayList<CountryData>>,
                 response: Response<ArrayList<CountryData>>
             ) {
                 if(response.isSuccessful){
-                    recyclerView = recyclerView.apply{
+                    /*recyclerView = recyclerView.apply{
                         countryAdapter = CountryAdapter(response.body()!!)
                         layoutManager = recyclerView.layoutManager
                         adapter = countryAdapter
-                    }
+                    }*/
+                    // Обновление mList с данными из ответа сервера
+                    mList.clear()
+                    mList.addAll(response.body() ?: emptyList())
+
+                    // Уведомление адаптера об изменениях
+                    countryAdapter.notifyDataSetChanged()
+                }
+                else{
+                    Toast.makeText(this@MainActivity, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             }
 
