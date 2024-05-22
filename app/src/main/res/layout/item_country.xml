@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-<!--
         <ImageView
             android:id="@+id/flag"
             android:layout_width="50dp"
@@ -22,7 +21,7 @@
             android:src="@drawable/jp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" /> -->
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/name_country"
@@ -52,8 +51,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ISIO"
-            app:layout_constraintEnd_toEndOf="@+id/name_country"
-            app:layout_constraintTop_toBottomOf="@+id/name_country" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/name_country"
+            app:layout_constraintStart_toEndOf="@+id/flag"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

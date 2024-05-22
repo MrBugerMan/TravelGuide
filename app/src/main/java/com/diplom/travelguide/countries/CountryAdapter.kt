@@ -8,8 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.diplom.travelguide.R
-import com.diplom.travelguide.databinding.EachItemCountryBinding
+import com.diplom.travelguide.databinding.ItemCountryBinding
 
 class CountryAdapter(
     private var mList: ArrayList<CountryData>
@@ -19,25 +20,23 @@ class CountryAdapter(
     private var onClickListener: OnClickListener? = null
 
     inner class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        /*val flag: ImageView = itemView.findViewById(R.id.flag) // старое решение
-        val country: TextView = itemView.findViewById(R.id.name_country)*/
         fun bind(countryData: CountryData) {
-            //val flagURL: String = "https://flagsapi.com/${countryData.iso2}/shiny/64.png"
-            //val flag: ImageView = itemView.findViewById(R.id.flag) - добавить/вернуть view
+            val flagURL = "https://flagsapi.com/${countryData.iso2}/shiny/64.png"
             val country: TextView = itemView.findViewById(R.id.name_country)
             val id: TextView = itemView.findViewById(R.id.id_country)
             val iso2: TextView = itemView.findViewById(R.id.isio)
-            //flag.setImageResource(countryData.flag)  // старое решение
+            val flag: ImageView = itemView.findViewById(R.id.flag)
+
             country.text = countryData.country
             id.text = countryData.id.toString()
             iso2.text = countryData.iso2
-            //Glide.with(flag.context).load(flagURL).into(flag)
+            Glide.with(flag.context).load(flagURL).diskCacheStrategy(DiskCacheStrategy.ALL).into(flag)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
         return CountryViewHolder(
-            EachItemCountryBinding.inflate(
+            ItemCountryBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -46,8 +45,6 @@ class CountryAdapter(
     }
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        /*holder.flag.setImageResource(mList[position].flag) // старое решение
-        holder.country.text = mList[position].country*/
         holder.bind(mList[position])
 
         holder.itemView.setOnClickListener {

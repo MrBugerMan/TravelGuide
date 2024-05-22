@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,7 +45,6 @@ class MainActivity : AppCompatActivity(){
 
         })
 
-        //mList = Country.getCountryData()  // хардкод через объект, заполнение списка вручную, flag: Int
         recyclerView = binding.recyclerViewCountry
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -52,14 +52,7 @@ class MainActivity : AppCompatActivity(){
         countryAdapter = CountryAdapter(mList)
         recyclerView.adapter = countryAdapter
 
-        Thread{ // отдельный поток для предотвращения краша преложения
-            runBlocking {
-                launch {
-                    getCountries()
-                }
-            }
-        }
-        //getCountries()  // предполагаю краш на этом этапе... использовать корунтины???
+        getCountries()  // предполагаю краш на этом этапе... использовать корунтины???
 
         countryAdapter.setOnClickListener(object:
             CountryAdapter.OnClickListener {
@@ -81,11 +74,6 @@ class MainActivity : AppCompatActivity(){
                 response: Response<ArrayList<CountryData>>
             ) {
                 if(response.isSuccessful){
-                    /*recyclerView = recyclerView.apply{
-                        countryAdapter = CountryAdapter(response.body()!!)
-                        layoutManager = recyclerView.layoutManager
-                        adapter = countryAdapter
-                    }*/
                     // Обновление mList с данными из ответа сервера
                     mList.clear()
                     mList.addAll(response.body() ?: emptyList())
@@ -99,7 +87,7 @@ class MainActivity : AppCompatActivity(){
             }
 
             override fun onFailure(call: Call<ArrayList<CountryData>>, t: Throwable) {
-                t.printStackTrace()
+                Log.d("Error - getCountries", t.message.toString())
             }
 
         })
