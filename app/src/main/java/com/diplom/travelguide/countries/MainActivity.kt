@@ -9,11 +9,10 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.diplom.travelguide.R
+import com.diplom.travelguide.ApiService
 import com.diplom.travelguide.countrydetails.CountryDetails
 import com.diplom.travelguide.databinding.ActivityMainBinding
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import com.yandex.mapkit.MapKitFactory
 import retrofit2.Call
 import retrofit2.Response
 
@@ -31,7 +30,11 @@ class MainActivity : AppCompatActivity(){
         val view = binding.root
         setContentView(view)
 
- 
+        // устанавливаем ключь для API Яндекс.Карт
+        MapKitFactory.setApiKey("d1d42e49-be29-4221-b7a0-d7888f5ee8af")
+
+
+        // поиск
         searchView = binding.searchCountry
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -45,6 +48,7 @@ class MainActivity : AppCompatActivity(){
 
         })
 
+        // настройка RecyclerView
         recyclerView = binding.recyclerViewCountry
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -52,8 +56,10 @@ class MainActivity : AppCompatActivity(){
         countryAdapter = CountryAdapter(mList)
         recyclerView.adapter = countryAdapter
 
-        getCountries()  // предполагаю краш на этом этапе... использовать корунтины???
+        // получаем данные из API (список стран и их индификатор для скачивания картинок))
+        getCountries()
 
+        // передача данных в новое активити и переход в новое активити при нажатии на элемент RecyclerView
         countryAdapter.setOnClickListener(object:
             CountryAdapter.OnClickListener {
             override fun onClick(position: Int, model: CountryData) {
@@ -67,7 +73,7 @@ class MainActivity : AppCompatActivity(){
 
     // функция получения данных стран из API
     private fun getCountries() {
-        Api.retrofitService.getCountries().enqueue(object : retrofit2.Callback<ArrayList<CountryData>> {
+        ApiService.retrofitService.getCountries().enqueue(object : retrofit2.Callback<ArrayList<CountryData>> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(
                 call: Call<ArrayList<CountryData>>,

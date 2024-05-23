@@ -9,17 +9,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="add API but problem recycleView">
+    <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="add maps">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityData.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CustomScrollView.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_city.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/Country.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/JSONGetByAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/JSONGetByAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/JSONGetByAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/JSONGetByAPI.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetails.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_country_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_country_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/each_item_country.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_country.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +73,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="Kotlin Data Class" />
         <option value="Kotlin Object" />
         <option value="Class" />
+        <option value="Kotlin Data Class" />
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
       </list>
@@ -107,6 +106,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "android-custom-viewC:/Users/parah/AndroidStudioProjects/TravelGuide/app/src/main/java/com/diplom/travelguide/countrydetails/CustomScrollView.kt_SELECTED": "CustomScrollView",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
     "last_opened_file_path": "C:/Users/parah/AndroidStudioProjects/TravelGuide",
@@ -118,6 +118,7 @@
       <recent name="C:\Users\parah\AndroidStudioProjects\TravelGuide\app\src\main\res\drawable" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\parah\AndroidStudioProjects\TravelGuide\app\src\main\java\com\diplom\travelguide" />
       <recent name="C:\Users\parah\AndroidStudioProjects\TravelGuide\app\src\main\res\drawable" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
@@ -230,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716295044054</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add maps">
+      <created>1716414403033</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716414403034</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -247,6 +255,7 @@
     <MESSAGE value="API list, crash program" />
     <MESSAGE value="understand bags, partially fixed" />
     <MESSAGE value="add API but problem recycleView" />
-    <option name="LAST_COMMIT_MESSAGE" value="add API but problem recycleView" />
+    <MESSAGE value="add maps" />
+    <option name="LAST_COMMIT_MESSAGE" value="add maps" />
   </component>
 </project>
