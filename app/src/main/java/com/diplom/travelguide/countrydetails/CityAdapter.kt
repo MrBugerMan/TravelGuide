@@ -10,7 +10,7 @@ import com.diplom.travelguide.R
 
 class CityAdapter(private var cityList: List<CityData>) : RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
 
-    private var onClickListener: CityAdapter.OnClickListener? = null
+    private var onClickListener: OnClickListener? = null
     inner class CityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         fun bind(cityData: CityData) {
             val city: TextView = itemView.findViewById(R.id.name_city)

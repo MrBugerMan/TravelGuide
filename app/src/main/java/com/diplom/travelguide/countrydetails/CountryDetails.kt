@@ -1,6 +1,7 @@
 package com.diplom.travelguide.countrydetails
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -9,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.diplom.travelguide.ApiService
+import com.diplom.travelguide.citydetails.CityDetails
 import com.diplom.travelguide.countries.CountryData
 import com.diplom.travelguide.countries.MainActivity
 import com.diplom.travelguide.databinding.ActivityCountryDetailsBinding
-import com.google.android.play.integrity.internal.t
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -71,8 +72,8 @@ class CountryDetails: AppCompatActivity() {
 
         var countryList: CountryData?= null
 
-        if(intent.hasExtra(MainActivity.NEXT_SCREEN)){
-            countryList = intent.getSerializableExtra(MainActivity.NEXT_SCREEN) as CountryData
+        if(intent.hasExtra(MainActivity.COUNTRY_ACTIVITY)){
+            countryList = intent.getSerializableExtra(MainActivity.COUNTRY_ACTIVITY) as CountryData
         }
 
         if(countryList != null){ // добавить проверку на null
@@ -94,18 +95,34 @@ class CountryDetails: AppCompatActivity() {
 
         }
 
+        cityAdapter.setOnClickListener(object:
+            CityAdapter.OnClickListener{
+            override fun onClick(position: Int, model: CityData) {
+                val intent = Intent(this@CountryDetails, CityDetails::class.java)
+                intent.putExtra(CITY_ACTIVITY, model)
+                startActivity(intent)
+            }
+        })
+
 
     }
 
-    suspend fun fetchCities(countryCode: String, onDataFetched: (List<CityData>) -> Unit) {
+    companion object{
+        const val CITY_ACTIVITY = "city_activity"
+    }
+
+    private suspend fun fetchCities(countryCode: String, onDataFetched: (List<CityData>) -> Unit) {
         try {
             ApiService.retrofitService.getCities(countryCode).enqueue(object : retrofit2.Callback<List<CityData>> {
+                @SuppressLint("NotifyDataSetChanged")
                 override fun onResponse(call: Call<List<CityData>>, response: Response<List<CityData>>) {
                     if (response.isSuccessful) {
                         response.body()?.let { cities ->
                             cityList.clear()
                             cityList.addAll(cities)
                             onDataFetched(cityList)
+
+                            cityAdapter.notifyDataSetChanged()
                         }
                     } else {
                         // Обработка ошибки
@@ -185,10 +202,6 @@ class CountryDetails: AppCompatActivity() {
         super.onStop()
     }
 
-    override fun onDestroy() {
-        Log.d("DESTROY", "onDestroy")
-        super.onDestroy()
-    }
 }
 
 

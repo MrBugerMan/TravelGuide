@@ -1,4 +1,4 @@
-package com.diplom.travelguide.countrydetails
+package com.diplom.travelguide
 
 import android.content.Context
 import android.util.AttributeSet

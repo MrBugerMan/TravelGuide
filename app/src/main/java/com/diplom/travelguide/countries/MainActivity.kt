@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(){
             CountryAdapter.OnClickListener {
             override fun onClick(position: Int, model: CountryData) {
                 val intent = Intent(this@MainActivity, CountryDetails::class.java)
-                intent.putExtra(NEXT_SCREEN, model)
+                intent.putExtra(COUNTRY_ACTIVITY, model)
                 startActivity(intent)
             }
         })
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity(){
 
 
     companion object{
-        const val NEXT_SCREEN = "details_screen"}
+        const val COUNTRY_ACTIVITY = "details_screen"}
 
 
 

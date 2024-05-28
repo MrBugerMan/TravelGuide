@@ -15,12 +15,12 @@
             android:layout_height="?attr/actionBarSize"
             android:background="#308d46"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:title="EmployeeDetails"
+            app:title="CountryDetails"
             app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.diplom.travelguide.countrydetails.CustomScrollView
+    <com.diplom.travelguide.CustomScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -94,7 +94,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.diplom.travelguide.countrydetails.CustomScrollView>
+    </com.diplom.travelguide.CustomScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
