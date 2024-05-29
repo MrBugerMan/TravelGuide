@@ -23,7 +23,7 @@ interface ServiceAPI {
 
     @Headers("X-CSCAPI-KEY: $API_KEY")
     @GET("v1/countries/{countryCode}/cities")
-    suspend fun getCities(@Path("countryCode") countryCode: String): Call<List<CityData>>
+    fun getCities(@Path("countryCode") countryCode: String): Call<ArrayList<CityData>>
 
 
 }

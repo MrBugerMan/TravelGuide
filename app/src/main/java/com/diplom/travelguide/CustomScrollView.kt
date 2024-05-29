@@ -13,7 +13,7 @@ class CustomScrollView @JvmOverloads constructor(
 
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
         // Вызов метода onTouchEvent у MapView для обработки касаний
-        findViewById<View>(R.id.map_country).onTouchEvent(ev)
+        //findViewById<View>(R.id.map_country).onTouchEvent(ev)
         return false
     }
 }

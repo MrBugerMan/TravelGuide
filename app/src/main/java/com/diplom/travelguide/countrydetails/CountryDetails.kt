@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,6 +15,7 @@ import com.diplom.travelguide.citydetails.CityDetails
 import com.diplom.travelguide.countries.CountryData
 import com.diplom.travelguide.countries.MainActivity
 import com.diplom.travelguide.databinding.ActivityCountryDetailsBinding
+import com.google.android.play.integrity.internal.t
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -47,7 +49,7 @@ class CountryDetails: AppCompatActivity() {
         )
 
         // не даём скролем касаться карты
-        mapCountry.setOnTouchListener { v, event ->
+        mapCountry.setOnTouchListener { _, _ ->
             // Перехватываем касания для MapView
             binding.scrollView.requestDisallowInterceptTouchEvent(true)
             false
@@ -61,7 +63,7 @@ class CountryDetails: AppCompatActivity() {
         recyclerView.adapter = cityAdapter
 
 
-        //getCountries()
+
 
 
         setSupportActionBar(binding.toolbar)
@@ -81,7 +83,11 @@ class CountryDetails: AppCompatActivity() {
             Glide.with(binding.flag.context).load("https://flagsapi.com/${countryList.iso2}/shiny/64.png").into(binding.flag) // разобраться с кэшированием (вроде работает)
             binding.toolbar.title = countryList.country
 
-            GlobalScope.launch(Dispatchers.Main) { // Dispatchers.Main для обновления UI
+            getCities(countryList.iso2)
+
+
+
+            /*lifecycleScope.launch {
                 try {
                     fetchCities(countryList.iso2) { fetchedCities ->
                         cityAdapter = CityAdapter(cityList) // хз передастся ли просто так, поэтому фигачу адаптер
@@ -91,7 +97,7 @@ class CountryDetails: AppCompatActivity() {
                     // Обработка ошибки
                     Log.d("Error - coruntines", e.message.toString())
                 }
-            }
+            }*/
 
         }
 
@@ -111,7 +117,33 @@ class CountryDetails: AppCompatActivity() {
         const val CITY_ACTIVITY = "city_activity"
     }
 
-    private suspend fun fetchCities(countryCode: String, onDataFetched: (List<CityData>) -> Unit) {
+    private fun getCities(iso2: String){
+        ApiService.retrofitService.getCities(iso2).enqueue( object: retrofit2.Callback<ArrayList<CityData>> {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onResponse(
+                call: Call<ArrayList<CityData>>,
+                response: Response<ArrayList<CityData>>
+            ) {
+                if (response.isSuccessful){
+                    cityList.clear()
+                    cityList.addAll( response.body() ?: emptyList())
+
+                    cityAdapter.notifyDataSetChanged()
+                }
+                else{
+                    Toast.makeText(this@CountryDetails, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ArrayList<CityData>>, t: Throwable) {
+                Log.d("Error - getCity", t.message.toString())
+            }
+
+        }
+
+        )
+    }
+    /*private fun fetchCities(countryCode: String, onDataFetched: (List<CityData>) -> Unit) {
         try {
             ApiService.retrofitService.getCities(countryCode).enqueue(object : retrofit2.Callback<List<CityData>> {
                 @SuppressLint("NotifyDataSetChanged")
@@ -138,7 +170,7 @@ class CountryDetails: AppCompatActivity() {
         } catch (e: Exception) {
             Log.d("Error - getCities", e.message.toString())
         }
-    }
+    }*/
 
     /*fun fetchCities(countryCode: String, onDataFetched: (List<CityData>) -> Unit) {
         ApiService.retrofitService.getCities(countryCode).enqueue(object : retrofit2.Callback<List<CityData>> {
