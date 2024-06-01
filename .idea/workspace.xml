@@ -4,28 +4,56 @@
     <shared>
       <config />
     </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_city_details.xml">
+        <config>
+          <theme>@style/Theme.TravelGuide</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.TravelGuide</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_country.xml">
+        <config>
+          <theme>@style/Theme.TravelGuide</theme>
+        </config>
+      </layout>
+    </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="add new API req and city RV not work)">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/citydetails/CityDetails.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_city_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CountriesAndInfoData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/JSONGetByAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/JSONGetByAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/citydetails/CityDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/citydetails/CityDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityData.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetails.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CustomScrollView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CustomScrollView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_country_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_country_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\parah\.android\avd\Sumsung_Galaxy_A50_API_30.avd]" />
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\User\.android\avd\Pixel_3a_API_34.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -75,9 +103,9 @@
         <option value="valueResourceFile" />
         <option value="Kotlin Object" />
         <option value="Class" />
-        <option value="Kotlin Data Class" />
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -100,6 +128,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2gC85iVkfG0cnXCO48ila7JHogX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -108,13 +139,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Android App.app.executor": "Run",
+    "DEBUGGABLE_DEVICE": "Pixel_3a_API_34 [emulator-5554]",
+    "DEBUGGABLE_PROCESS": "com.diplom.travelguide",
+    "DEBUGGER_ID": "Auto",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHOW_ALL_PROCESSES": "true",
     "android-custom-viewC:/Users/parah/AndroidStudioProjects/TravelGuide/app/src/main/java/com/diplom/travelguide/CustomScrollView.kt_SELECTED": "CustomScrollView",
     "android-custom-viewC:/Users/parah/AndroidStudioProjects/TravelGuide/app/src/main/java/com/diplom/travelguide/countrydetails/CustomScrollView.kt_SELECTED": "CustomScrollView",
+    "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/parah/AndroidStudioProjects/TravelGuide",
     "settings.editor.selected.configurable": "editor.preferences.appearance"
   }
@@ -147,6 +187,7 @@
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -266,6 +307,17 @@
         <option value="Default.Date" />
         <option value="Default.Subject" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">

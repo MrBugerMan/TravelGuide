@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,6 +32,7 @@ class CountryDetails: AppCompatActivity() {
     private lateinit var binding: ActivityCountryDetailsBinding
     private lateinit var mapCountry: MapView
     private lateinit var recyclerView: RecyclerView
+    private lateinit var searchView: SearchView
     private var cityList = ArrayList<CityData>()
     private lateinit var cityAdapter: CityAdapter
 
@@ -64,6 +66,17 @@ class CountryDetails: AppCompatActivity() {
 
 
 
+        searchView = binding.searchCity
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+        })
 
 
         setSupportActionBar(binding.toolbar)
@@ -86,19 +99,6 @@ class CountryDetails: AppCompatActivity() {
             getCities(countryList.iso2)
 
 
-
-            /*lifecycleScope.launch {
-                try {
-                    fetchCities(countryList.iso2) { fetchedCities ->
-                        cityAdapter = CityAdapter(cityList) // хз передастся ли просто так, поэтому фигачу адаптер
-                        recyclerView.adapter = cityAdapter
-                    }
-                } catch (e: Exception) {
-                    // Обработка ошибки
-                    Log.d("Error - coruntines", e.message.toString())
-                }
-            }*/
-
         }
 
         cityAdapter.setOnClickListener(object:
@@ -111,6 +111,22 @@ class CountryDetails: AppCompatActivity() {
         })
 
 
+    }
+
+    private  fun filterList(query: String?) {
+        if (query != null) {
+            val filteredList = ArrayList<CityData>() //  ArrayList<CountriesAndInfoData>()
+            for (i in cityList) { // for (i in infoList)
+                if (i.city.lowercase().contains(query)) { //  i.mainCountry.name.lowercase().contains(query)
+                    filteredList.add(i)
+                }
+            }
+            if (filteredList.isEmpty()) {
+                Toast.makeText(this, "City not found", Toast.LENGTH_SHORT).show()
+            } else {
+                cityAdapter.setFilteredList(filteredList)
+            }
+        }
     }
 
     companion object{

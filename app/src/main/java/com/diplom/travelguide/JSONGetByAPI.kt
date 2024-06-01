@@ -11,9 +11,16 @@ import retrofit2.http.Path
 
 private const val BASE_URL: String = "https://api.countrystatecity.in/"
 private const val API_KEY: String = "S0tSUGVQQWdiMEZZQVdsMHBZQ1pBbzZjWVFYUkk2R0ZROWJBUWtwRA==" // ключ на почте
-
-private val retrofit = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(
+private val retrofitFirst = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(
     BASE_URL
+).build()
+
+
+
+private const val BIG_API_KEY: String = "lCGEor1fePaRl2G98a3Lg3KV5NZ4odt4w79s2R1u"
+private const val BIG_BASE_URL: String = "https://countryapi.io/api/"
+private val retrofitSecond = Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(
+    BIG_BASE_URL
 ).build()
 
 interface ServiceAPI {
@@ -26,8 +33,14 @@ interface ServiceAPI {
     fun getCities(@Path("countryCode") countryCode: String): Call<ArrayList<CityData>>
 
 
+    @Headers("Authorization: Bearer $BIG_API_KEY")
+    @GET("all")
+    fun getAllCountriesAndInfo(): Call<ArrayList<CountriesAndInfoData>>
+
+
 }
 
 object ApiService {
-    val retrofitService: ServiceAPI by lazy{ retrofit.create(ServiceAPI::class.java)}
+    val retrofitService: ServiceAPI by lazy{ retrofitFirst.create(ServiceAPI::class.java)}
+    val retrofitServiceSecond: ServiceAPI by lazy{ retrofitSecond.create(ServiceAPI::class.java)}
 }

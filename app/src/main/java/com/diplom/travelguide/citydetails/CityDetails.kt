@@ -52,6 +52,8 @@ class CityDetails : AppCompatActivity() {
         }
         if(cityList != null){
             // переносим данные в активити и биндим
+            binding.toolbarCity.title = cityList.city
+            binding.cityInfo.text = cityList.info ?: "Not found!"
         }
 
 

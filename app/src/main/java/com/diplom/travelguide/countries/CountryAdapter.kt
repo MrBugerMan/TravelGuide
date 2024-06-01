@@ -9,19 +9,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.diplom.travelguide.CountriesAndInfoData
 import com.diplom.travelguide.R
 import com.diplom.travelguide.databinding.ItemCountryBinding
 
 class CountryAdapter(
     private var mList: ArrayList<CountryData>
+    //private var mList: ArrayList<CountriesAndInfoData>
 ) :
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
     private var onClickListener: OnClickListener? = null
 
     inner class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(countryData: CountryData) {
-            val flagURL = "https://flagsapi.com/${countryData.iso2}/shiny/64.png"
+        fun bind(countryData: CountryData) { // countryData: CountriesAndInfoData
+            val flagURL = "https://flagsapi.com/${countryData.iso2}/shiny/64.png" // countryData.mainCountry.alpha2Code
             val country: TextView = itemView.findViewById(R.id.name_country)
             val id: TextView = itemView.findViewById(R.id.id_country)
             val iso2: TextView = itemView.findViewById(R.id.isio)
@@ -30,6 +32,9 @@ class CountryAdapter(
             country.text = countryData.country
             id.text = countryData.id.toString()
             iso2.text = countryData.iso2
+            /*country.text = countryData.mainCountry.name
+            id.text = countryData.mainCountry.population.toString()
+            iso2.text = countryData.mainCountry.alpha2Code*/
             Glide.with(flag.context).load(flagURL).diskCacheStrategy(DiskCacheStrategy.ALL).into(flag)
         }
     }
@@ -63,12 +68,12 @@ class CountryAdapter(
     }
 
     interface OnClickListener {
-        fun onClick(position: Int, model: CountryData)
+        fun onClick(position: Int, model: CountryData) // model: CountriesAndInfoData
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setFilteredList(mList: List<CountryData>) {
-        this.mList = mList as ArrayList<CountryData>
+    fun setFilteredList(mList: ArrayList<CountryData> ) { // mList: ArrayList<CountriesAndInfoData>
+        this.mList = mList as ArrayList<CountryData> //  as ArrayList<CountriesAndInfoData>
         notifyDataSetChanged()
     }
 
