@@ -26,24 +26,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="add new API req and city RV not work)">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/migrations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CountriesAndInfoData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="heap">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetailsViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/JSONGetByAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/JSONGetByAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CountriesAndInfoData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CountriesAndInfoData.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/citydetails/CityDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/citydetails/CityDetails.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityData.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetails.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,8 +94,8 @@
         <option value="Kotlin Object" />
         <option value="Class" />
         <option value="layoutResourceFile" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -296,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716491498623</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="heap">
+      <option name="closed" value="true" />
+      <created>1717253868303</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717253868303</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -326,6 +324,7 @@
     <MESSAGE value="add API but problem recycleView" />
     <MESSAGE value="add maps" />
     <MESSAGE value="add new API req and city RV not work)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new API req and city RV not work)" />
+    <MESSAGE value="heap" />
+    <option name="LAST_COMMIT_MESSAGE" value="heap" />
   </component>
 </project>

@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(){
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
+                CountryViewModel().filterList(newText, mList, countryAdapter)
                 return true
             }
 
@@ -61,11 +61,9 @@ class MainActivity : AppCompatActivity(){
         recyclerView.adapter = countryAdapter
 
         // получаем данные из API (список стран и их индификатор для скачивания картинок))
-        getCountries()
+        CountryViewModel().getCountries(mList, countryAdapter)
 
 
-
-        //getAllCountriesAndInfo()
 
 
 
@@ -81,83 +79,8 @@ class MainActivity : AppCompatActivity(){
 
     }
 
-    private fun getAllCountriesAndInfo() {
-        ApiService.retrofitServiceSecond.getAllCountriesAndInfo().enqueue(object : retrofit2.Callback<ArrayList<CountriesAndInfoData>> {
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onResponse(
-                call: Call<ArrayList<CountriesAndInfoData>>,
-                response: Response<ArrayList<CountriesAndInfoData>>
-            ) {
-                if(response.isSuccessful){
-                    // Обновление mList с данными из ответа сервера
-                    infoList.clear()
-                    infoList.addAll(response.body() ?: emptyList())
-
-                    // Уведомление адаптера об изменениях
-                    countryAdapter.notifyDataSetChanged()
-                }
-                else{
-                    Toast.makeText(this@MainActivity, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ArrayList<CountriesAndInfoData>>, t: Throwable) {
-                Log.d("Error - getAllCountriesAndInfo", t.message.toString())
-            }
-
-        })
-    }
-
-    // функция получения данных стран из API
-    private fun getCountries() {
-        ApiService.retrofitService.getCountries().enqueue(object : retrofit2.Callback<ArrayList<CountryData>> {
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onResponse(
-                call: Call<ArrayList<CountryData>>,
-                response: Response<ArrayList<CountryData>>
-            ) {
-                if(response.isSuccessful){
-                    // Обновление mList с данными из ответа сервера
-                    mList.clear()
-                    mList.addAll(response.body() ?: emptyList())
-
-                    // Уведомление адаптера об изменениях
-                    countryAdapter.notifyDataSetChanged()
-                }
-                else{
-                    Toast.makeText(this@MainActivity, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ArrayList<CountryData>>, t: Throwable) {
-                Log.d("Error - getCountries", t.message.toString())
-            }
-
-        })
-    }
-
-
 
     companion object{
         const val COUNTRY_ACTIVITY = "details_screen"}
-
-
-
-    // функция фильтрации/поиска по названию
-    private  fun filterList(query: String?) {
-        if (query != null) {
-            val filteredList = ArrayList<CountryData>() //  ArrayList<CountriesAndInfoData>()
-            for (i in mList) { // for (i in infoList)
-                if (i.country.lowercase().contains(query)) { //  i.mainCountry.name.lowercase().contains(query)
-                    filteredList.add(i)
-                }
-            }
-            if (filteredList.isEmpty()) {
-                Toast.makeText(this, "Country not found", Toast.LENGTH_SHORT).show()
-            } else {
-                countryAdapter.setFilteredList(filteredList)
-            }
-        }
-    }
 
 }

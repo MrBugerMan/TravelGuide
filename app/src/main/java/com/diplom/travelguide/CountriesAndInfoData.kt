@@ -15,7 +15,7 @@ data class CountyLanguage (
     val prs: String,
     val pus: String,
     val tuk: String,
-)
+):java.io.Serializable
 data class CountryInfo (
     val name: String,
     val alpha2Code: String,
@@ -27,4 +27,4 @@ data class CountryInfo (
     val latLng: CountryAndCapital,
     val timezones: ArrayList<Any>,
     val languages: CountyLanguage,
-)
+):java.io.Serializable

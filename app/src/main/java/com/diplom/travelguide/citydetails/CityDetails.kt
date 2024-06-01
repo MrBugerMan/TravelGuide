@@ -60,7 +60,6 @@ class CityDetails : AppCompatActivity() {
     }
 
 
-
     override fun onStart() {
         super.onStart()
         MapKitFactory.getInstance().onStart()

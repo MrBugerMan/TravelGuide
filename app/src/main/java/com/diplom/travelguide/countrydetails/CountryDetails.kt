@@ -73,7 +73,7 @@ class CountryDetails: AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
+                CountryDetailsViewModel().filterList(newText, cityList, cityAdapter)
                 return true
             }
         })
@@ -96,8 +96,7 @@ class CountryDetails: AppCompatActivity() {
             Glide.with(binding.flag.context).load("https://flagsapi.com/${countryList.iso2}/shiny/64.png").into(binding.flag) // разобраться с кэшированием (вроде работает)
             binding.toolbar.title = countryList.country
 
-            getCities(countryList.iso2)
-
+            CountryDetailsViewModel().getCities(countryList.iso2, cityList, cityAdapter)
 
         }
 
@@ -113,129 +112,11 @@ class CountryDetails: AppCompatActivity() {
 
     }
 
-    private  fun filterList(query: String?) {
-        if (query != null) {
-            val filteredList = ArrayList<CityData>() //  ArrayList<CountriesAndInfoData>()
-            for (i in cityList) { // for (i in infoList)
-                if (i.city.lowercase().contains(query)) { //  i.mainCountry.name.lowercase().contains(query)
-                    filteredList.add(i)
-                }
-            }
-            if (filteredList.isEmpty()) {
-                Toast.makeText(this, "City not found", Toast.LENGTH_SHORT).show()
-            } else {
-                cityAdapter.setFilteredList(filteredList)
-            }
-        }
-    }
 
     companion object{
         const val CITY_ACTIVITY = "city_activity"
     }
 
-    private fun getCities(iso2: String){
-        ApiService.retrofitService.getCities(iso2).enqueue( object: retrofit2.Callback<ArrayList<CityData>> {
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onResponse(
-                call: Call<ArrayList<CityData>>,
-                response: Response<ArrayList<CityData>>
-            ) {
-                if (response.isSuccessful){
-                    cityList.clear()
-                    cityList.addAll( response.body() ?: emptyList())
-
-                    cityAdapter.notifyDataSetChanged()
-                }
-                else{
-                    Toast.makeText(this@CountryDetails, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ArrayList<CityData>>, t: Throwable) {
-                Log.d("Error - getCity", t.message.toString())
-            }
-
-        }
-
-        )
-    }
-    /*private fun fetchCities(countryCode: String, onDataFetched: (List<CityData>) -> Unit) {
-        try {
-            ApiService.retrofitService.getCities(countryCode).enqueue(object : retrofit2.Callback<List<CityData>> {
-                @SuppressLint("NotifyDataSetChanged")
-                override fun onResponse(call: Call<List<CityData>>, response: Response<List<CityData>>) {
-                    if (response.isSuccessful) {
-                        response.body()?.let { cities ->
-                            cityList.clear()
-                            cityList.addAll(cities)
-                            onDataFetched(cityList)
-
-                            cityAdapter.notifyDataSetChanged()
-                        }
-                    } else {
-                        // Обработка ошибки
-                        Toast.makeText(this@CountryDetails, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<List<CityData>>, t: Throwable) {
-                    // Обработка ошибки
-                    Log.d("Error - getCities", t.message.toString())
-                }
-            })
-        } catch (e: Exception) {
-            Log.d("Error - getCities", e.message.toString())
-        }
-    }*/
-
-    /*fun fetchCities(countryCode: String, onDataFetched: (List<CityData>) -> Unit) {
-        ApiService.retrofitService.getCities(countryCode).enqueue(object : retrofit2.Callback<List<CityData>> {
-            override fun onResponse(call: Call<List<CityData>>, response: Response<List<CityData>>) {
-                if (response.isSuccessful) {
-                    response.body()?.let { cities ->
-                        cityList.clear()
-                        cityList.addAll(cities)
-                        onDataFetched(cityList)
-                    }
-                } else {
-                    // Обработка ошибки
-                    Toast.makeText(this@CountryDetails, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<List<CityData>>, t: Throwable) {
-                // Обработка ошибки
-                Log.d("Error - getCities", t.message.toString())
-            }
-        })
-    }*/
-
-    /*private fun getCountries() {
-        ApiService.retrofitService.getCountries().enqueue(object : retrofit2.Callback<ArrayList<CountryData>> {
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onResponse(
-                call: Call<ArrayList<CountryData>>,
-                response: Response<ArrayList<CountryData>>
-            ) {
-                if(response.isSuccessful){
-                    // Обновление mList с данными из ответа сервера
-                    mList.clear()
-                    mList.addAll(response.body() ?: emptyList())
-
-                    // Уведомление адаптера об изменениях
-                    countryAdapter.notifyDataSetChanged()
-                }
-                else{
-                    Toast.makeText(this@MainActivity, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ArrayList<CountryData>>, t: Throwable) {
-                Log.d("Error - getCountries", t.message.toString())
-            }
-
-        })
-    }*/
 
     // крашется при выходи из этого активити в главное. Скорее всего проблема вжизненном цикле
     override fun onStart() {
