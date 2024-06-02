@@ -43,7 +43,8 @@ class CountryDetailsViewModel {
                 }
             }
             if (filteredList.isEmpty()) {
-                Toast.makeText(CountryDetails(), "City not found", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(CountryDetails(), "City not found", Toast.LENGTH_SHORT).show()
+                Log.d("Error - getCity", "City not found")
             } else {
                 cityAdapter.setFilteredList(filteredList)
             }

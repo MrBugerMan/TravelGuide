@@ -3,30 +3,20 @@ package com.diplom.travelguide.countrydetails
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.diplom.travelguide.ApiService
+import com.diplom.travelguide.CountriesAndInfoData
 import com.diplom.travelguide.citydetails.CityDetails
-import com.diplom.travelguide.countries.CountryData
 import com.diplom.travelguide.countries.MainActivity
 import com.diplom.travelguide.databinding.ActivityCountryDetailsBinding
-import com.google.android.play.integrity.internal.t
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.mapview.MapView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Response
 
 class CountryDetails: AppCompatActivity() {
     private lateinit var binding: ActivityCountryDetailsBinding
@@ -85,18 +75,18 @@ class CountryDetails: AppCompatActivity() {
         binding.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed()}
 
 
-        var countryList: CountryData?= null
+        var countryList: CountriesAndInfoData?= null  // var countryList: CountryData?= null
 
         if(intent.hasExtra(MainActivity.COUNTRY_ACTIVITY)){
-            countryList = intent.getSerializableExtra(MainActivity.COUNTRY_ACTIVITY) as CountryData
+            countryList = intent.getSerializableExtra(MainActivity.COUNTRY_ACTIVITY) as CountriesAndInfoData // CountryData
         }
 
         if(countryList != null){ // добавить проверку на null
-            binding.nameCountry.text = countryList.country ?: "Not Country"
-            Glide.with(binding.flag.context).load("https://flagsapi.com/${countryList.iso2}/shiny/64.png").into(binding.flag) // разобраться с кэшированием (вроде работает)
-            binding.toolbar.title = countryList.country
+            binding.nameCountry.text = countryList.mainCountry.name ?: "Not Country"  // countryList.country ?: "Not Country"
+            Glide.with(binding.flag.context).load("https://flagsapi.com/${countryList.mainCountry.alpha2Code}/shiny/64.png").into(binding.flag) // countryList.iso2
+            binding.toolbar.title =   countryList.mainCountry.name // countryList.country
 
-            CountryDetailsViewModel().getCities(countryList.iso2, cityList, cityAdapter)
+            CountryDetailsViewModel().getCities(countryList.mainCountry.alpha2Code, cityList, cityAdapter) // countryList.iso2, cityList, cityAdapter
 
         }
 

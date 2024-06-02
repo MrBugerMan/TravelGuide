@@ -34,8 +34,8 @@ interface ServiceAPI {
 
 
     @Headers("Authorization: Bearer $BIG_API_KEY")
-    @GET("all")
-    fun getAllCountriesAndInfo(): Call<ArrayList<CountriesAndInfoData>>
+    @GET("name/{name}")
+    fun getAllCountriesAndInfo(@Path("name") name: String): Call<ArrayList<CountriesAndInfoData>>
 
 
 }
@@ -44,3 +44,5 @@ object ApiService {
     val retrofitService: ServiceAPI by lazy{ retrofitFirst.create(ServiceAPI::class.java)}
     val retrofitServiceSecond: ServiceAPI by lazy{ retrofitSecond.create(ServiceAPI::class.java)}
 }
+
+
