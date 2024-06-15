@@ -1,4 +1,4 @@
-package com.diplom.travelguide.countrydetails
+package com.diplom.travelguide.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.diplom.travelguide.R
+import com.diplom.travelguide.adapters.data.CityData
 
 class CityAdapter(private var cityList: List<CityData>) : RecyclerView.Adapter<CityAdapter.CityViewHolder>() {
 

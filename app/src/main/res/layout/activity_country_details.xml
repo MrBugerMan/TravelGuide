@@ -62,13 +62,53 @@
                 app:layout_constraintStart_toEndOf="@+id/flag"
                 app:layout_constraintTop_toTopOf="@+id/flow" />
 
+            <TextView
+                android:id="@+id/population"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Population: 146 150 789"
+                android:padding="5dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/flow"/>
+
+            <TextView
+                android:id="@+id/capital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capital: Moscow"
+                android:padding="5dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/population"/>
+
+            <TextView
+                android:id="@+id/value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Value: RUB"
+                android:padding="5dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/capital"/>
+
+            <TextView
+                android:id="@+id/language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Language: Russian"
+                android:padding="5dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/value"/>
+
             <com.yandex.mapkit.mapview.MapView
                 android:id="@+id/map_country"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/flow" />
+                app:layout_constraintTop_toBottomOf="@+id/language" />
 
 
             <androidx.appcompat.widget.SearchView

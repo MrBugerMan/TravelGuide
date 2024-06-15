@@ -3,8 +3,10 @@ package com.diplom.travelguide.countries
 import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.Toast
-import com.diplom.travelguide.ApiService
-import com.diplom.travelguide.CountriesAndInfoData
+import com.diplom.travelguide.services.ApiService
+import com.diplom.travelguide.adapters.CountryAdapter
+import com.diplom.travelguide.adapters.data.CountryData
+import com.diplom.travelguide.ui.searchcountry.SearchCountry
 import retrofit2.Call
 import retrofit2.Response
 
@@ -25,7 +27,7 @@ class CountryViewModel {
                     mList.addAll(response.body() ?: emptyList())
                 }
                 else{
-                    Toast.makeText(MainActivity(), "Error ${response.code()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(SearchCountry(), "Error ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -38,16 +40,16 @@ class CountryViewModel {
 
     // функция фильтрации/поиска по названию
     @SuppressLint("NotifyDataSetChanged")
-    fun filterList(query: String?, mList: ArrayList<CountriesAndInfoData>, countryAdapter: CountryAdapter) { // mList: ArrayList<CountryData>
+    fun filterList(query: String?, mList: ArrayList<CountryData>, countryAdapter: CountryAdapter) { // mList: ArrayList<CountriesAndInfoData>
         if (query != null) {
-            val filteredList = ArrayList<CountriesAndInfoData>() // ArrayList<CountryData>()
+            val filteredList = ArrayList<CountryData>() // ArrayList<CountriesAndInfoData>()
             for (i in mList) { // for (i in infoList)
-                if (i.mainCountry.name.lowercase().contains(query)) { // i.country.lowercase().contains(query)
+                if (i.name.lowercase().contains(query)) { // i.mainCountry.name.lowercase().contains(query)
                     filteredList.add(i)
                 }
             }
             if (filteredList.isEmpty()) {
-                //Toast.makeText(MainActivity(), "Country not found", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(SearchCountry(), "Country not found", Toast.LENGTH_SHORT).show()
                 Log.d("Error - getCity", "Country not found")
             } else {
                 countryAdapter.setFilteredList(filteredList)
@@ -57,12 +59,23 @@ class CountryViewModel {
     }
 
 
+    /*fun getCountriesInfo(context: Context){
+        val jsonString = try {
+            context.assets.open("countriesdata/countries.json").bufferedReader().use { it.readText() }
+        }catch (e: Exception){ "" }
+        val gson = Gson()
+        val data = gson.fromJson(jsonString, Array<CountriesAndInfoData>::class.java)
+
+        Log.d("MyDataLog", data[0].mainCountry.name)
+    }*/
+
+
 
 
 
 
     // попытка использования другого API
-    fun getAllCountriesAndInfo(countryInfo: ArrayList<CountriesAndInfoData>, nameList: ArrayList<CountryData>, countryAdapter: CountryAdapter){
+    /*fun getAllCountriesAndInfo(countryInfo: ArrayList<CountriesAndInfoData>, nameList: ArrayList<CountryData>, countryAdapter: CountryAdapter){
         Log.d("ERROR!!!!!!!", "anu") // , countryAdapter: CountryAdapter
         for (country in nameList){
             ApiService.retrofitServiceSecond.getAllCountriesAndInfo(country.name).enqueue(object : retrofit2.Callback<ArrayList<CountriesAndInfoData>> {
@@ -84,7 +97,7 @@ class CountryViewModel {
                         Log.d("getAllCountriesAndInfo", "ВСЁ НОРМ ОТРАБОТАЛО")
                     }
                     else{
-                        Toast.makeText(MainActivity(), "Error ${response.code()}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(SearchCountry(), "Error ${response.code()}", Toast.LENGTH_SHORT).show()
                     }
 
                 }
@@ -96,7 +109,7 @@ class CountryViewModel {
             })
         }
 
-    }
+    }*/
     /*
     val arrayu = arrayOf<String>("au", "as" .....)
     .....getAllCountriesAndInfo(arrayu[0]).enque....

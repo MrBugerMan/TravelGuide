@@ -1,4 +1,4 @@
-package com.diplom.travelguide.countrydetails
+package com.diplom.travelguide.ui.countrydetails
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,10 +8,13 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.diplom.travelguide.CountriesAndInfoData
-import com.diplom.travelguide.citydetails.CityDetails
-import com.diplom.travelguide.countries.MainActivity
+import com.diplom.travelguide.adapters.data.CountryData
+import com.diplom.travelguide.adapters.CityAdapter
+import com.diplom.travelguide.adapters.data.CityData
+import com.diplom.travelguide.countrydetails.CountryDetailsViewModel
 import com.diplom.travelguide.databinding.ActivityCountryDetailsBinding
+import com.diplom.travelguide.ui.citydetails.CityDetails
+import com.diplom.travelguide.ui.searchcountry.SearchCountry
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -75,23 +78,23 @@ class CountryDetails: AppCompatActivity() {
         binding.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed()}
 
 
-        var countryList: CountriesAndInfoData?= null  // var countryList: CountryData?= null
+        var countryList: CountryData?= null  // var countryList: CountriesAndInfoData?= null
 
-        if(intent.hasExtra(MainActivity.COUNTRY_ACTIVITY)){
-            countryList = intent.getSerializableExtra(MainActivity.COUNTRY_ACTIVITY) as CountriesAndInfoData // CountryData
+        if(intent.hasExtra(SearchCountry.COUNTRY_ACTIVITY)){
+            countryList = intent.getSerializableExtra(SearchCountry.COUNTRY_ACTIVITY) as CountryData // CountriesAndInfoData
         }
 
         if(countryList != null){ // добавить проверку на null
-            binding.nameCountry.text = countryList.mainCountry.name ?: "Not Country"  // countryList.country ?: "Not Country"
-            Glide.with(binding.flag.context).load("https://flagsapi.com/${countryList.mainCountry.alpha2Code}/shiny/64.png").into(binding.flag) // countryList.iso2
-            binding.toolbar.title =   countryList.mainCountry.name // countryList.country
+            binding.nameCountry.text = countryList.name ?: "Not Country"  // countryList.country ?: "Not Country"
+            Glide.with(binding.flag.context).load("https://flagsapi.com/${countryList.iso2}/shiny/64.png").into(binding.flag) // countryList.iso2
+            binding.toolbar.title =   countryList.name // countryList.country
 
-            CountryDetailsViewModel().getCities(countryList.mainCountry.alpha2Code, cityList, cityAdapter) // countryList.iso2, cityList, cityAdapter
+            CountryDetailsViewModel().getCities(countryList.iso2, cityList, cityAdapter) // mainCountry.alpha2Code, cityList, cityAdapter
 
         }
 
         cityAdapter.setOnClickListener(object:
-            CityAdapter.OnClickListener{
+            CityAdapter.OnClickListener {
             override fun onClick(position: Int, model: CityData) {
                 val intent = Intent(this@CountryDetails, CityDetails::class.java)
                 intent.putExtra(CITY_ACTIVITY, model)

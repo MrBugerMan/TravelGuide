@@ -1,0 +1,12 @@
+package com.diplom.travelguide.services.data
+
+import com.google.gson.annotations.SerializedName
+
+
+data class Flag (
+
+  @SerializedName("small"  ) var small  : String? = null,
+  @SerializedName("medium" ) var medium : String? = null,
+  @SerializedName("large"  ) var large  : String? = null
+
+)

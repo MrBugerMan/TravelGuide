@@ -18,10 +18,10 @@
         android:theme="@style/Theme.TravelGuide"
         tools:targetApi="31">
         <activity
-            android:name=".citydetails.CityDetails"
+            android:name=".ui.citydetails.CityDetails"
             android:exported="false" />
         <activity
-            android:name=".countries.MainActivity"
+            android:name=".ui.searchcountry.SearchCountry"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".countrydetails.CountryDetails"
+            android:name=".ui.countrydetails.CountryDetails"
             android:exported="false" />
     </application>
 

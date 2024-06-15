@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".countries.MainActivity">
+    tools:context=".ui.searchcountry.SearchCountry">
 
 
     <com.google.android.material.card.MaterialCardView
@@ -29,6 +29,15 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:text="NONE"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/material_card_view_country" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_country"
         android:layout_width="0dp"
@@ -37,7 +46,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/material_card_view_country"/>
+        app:layout_constraintTop_toBottomOf="@+id/test"/>
+    <!-- @+id/material_card_view_country -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

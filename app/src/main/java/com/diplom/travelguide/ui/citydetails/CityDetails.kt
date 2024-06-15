@@ -1,16 +1,16 @@
-package com.diplom.travelguide.citydetails
+package com.diplom.travelguide.ui.citydetails
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.OnBackPressedDispatcher
-import com.diplom.travelguide.countrydetails.CityData
-import com.diplom.travelguide.countrydetails.CountryDetails
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.diplom.travelguide.R
+import com.diplom.travelguide.adapters.data.CityData
 import com.diplom.travelguide.databinding.ActivityCityDetailsBinding
-import com.yandex.mapkit.Animation
+import com.diplom.travelguide.ui.countrydetails.CountryDetails
 import com.yandex.mapkit.MapKitFactory
-import com.yandex.mapkit.geometry.Point
-import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.mapview.MapView
 
 class CityDetails : AppCompatActivity() {
@@ -25,8 +25,17 @@ class CityDetails : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        //val navController = navHostFragment.navController
 
-        mapCity = binding.mapCity
+        //binding.bottomNavMenu.setupWithNavController(navController)
+
+        binding.bottomNavMenu.setupWithNavController(
+            navController = navHostFragment.findNavController()
+        )
+
+
+       /* mapCity = binding.mapCity
         mapCity.map.move(CameraPosition(Point(55.755864, 37.617698), 11.0f, 0.0f, 0.0f), // в Point надо передавать координаты города!!!
             Animation(Animation.Type.SMOOTH, 300F),
             null
@@ -37,7 +46,7 @@ class CityDetails : AppCompatActivity() {
             // Перехватываем касания для MapView
             binding.scrollViewMain.requestDisallowInterceptTouchEvent(true)
             false
-        }
+        }*/
 
         setSupportActionBar(binding.toolbarCity)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -53,7 +62,7 @@ class CityDetails : AppCompatActivity() {
         if(cityList != null){
             // переносим данные в активити и биндим
             binding.toolbarCity.title = cityList.city
-            binding.cityInfo.text = cityList.info ?: "Not found!"
+            //binding.cityInfo.text = cityList.info ?: "Not found!"
         }
 
 
