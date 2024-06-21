@@ -1,16 +1,15 @@
-package com.diplom.travelguide.countries
+package com.diplom.travelguide.ui.searchcountry
 
 import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.Toast
 import com.diplom.travelguide.services.ApiService
-import com.diplom.travelguide.adapters.CountryAdapter
-import com.diplom.travelguide.adapters.data.CountryData
-import com.diplom.travelguide.ui.searchcountry.SearchCountry
+import com.diplom.travelguide.ui.adapters.CountryAdapter
+import com.diplom.travelguide.ui.adapters.data.CountryData
 import retrofit2.Call
 import retrofit2.Response
 
-class CountryViewModel {
+class SearchViewModel {
 
 
     // функция получения данных стран из API

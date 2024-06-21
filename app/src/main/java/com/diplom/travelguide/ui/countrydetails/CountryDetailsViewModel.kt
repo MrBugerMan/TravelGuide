@@ -1,12 +1,11 @@
-package com.diplom.travelguide.countrydetails
+package com.diplom.travelguide.ui.countrydetails
 
 import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.Toast
 import com.diplom.travelguide.services.ApiService
-import com.diplom.travelguide.adapters.CityAdapter
-import com.diplom.travelguide.adapters.data.CityData
-import com.diplom.travelguide.ui.countrydetails.CountryDetails
+import com.diplom.travelguide.ui.adapters.CityAdapter
+import com.diplom.travelguide.ui.adapters.data.CityData
 import retrofit2.Call
 import retrofit2.Response
 

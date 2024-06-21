@@ -1,4 +1,4 @@
-package com.diplom.travelguide.adapters
+package com.diplom.travelguide.ui.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.diplom.travelguide.R
-import com.diplom.travelguide.adapters.data.CountryData
+import com.diplom.travelguide.ui.adapters.data.CountryData
 import com.diplom.travelguide.databinding.ItemCountryBinding
 
 class CountryAdapter(

@@ -8,11 +8,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.diplom.travelguide.adapters.data.CountryData
-import com.diplom.travelguide.adapters.CityAdapter
-import com.diplom.travelguide.adapters.data.CityData
-import com.diplom.travelguide.countrydetails.CountryDetailsViewModel
 import com.diplom.travelguide.databinding.ActivityCountryDetailsBinding
+import com.diplom.travelguide.ui.adapters.CityAdapter
+import com.diplom.travelguide.ui.adapters.data.CityData
+import com.diplom.travelguide.ui.adapters.data.CountryData
 import com.diplom.travelguide.ui.citydetails.CityDetails
 import com.diplom.travelguide.ui.searchcountry.SearchCountry
 import com.yandex.mapkit.Animation

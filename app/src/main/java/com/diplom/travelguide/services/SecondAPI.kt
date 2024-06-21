@@ -1,6 +1,6 @@
 package com.diplom.travelguide.services
 
-import com.diplom.travelguide.adapters.data.CityData
+import com.diplom.travelguide.ui.adapters.data.CityData
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

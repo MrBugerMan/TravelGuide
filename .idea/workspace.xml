@@ -56,60 +56,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="error in data class and parsing">
-      <change afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/countries.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/countries1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/test1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/TestData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/SecondAPI.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/AFN.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/CountryInfo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Currencies.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Demonyms.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Eng.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Flag.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Fra.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Languages.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/LatLng.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/NativeNames.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Prs.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Pus.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/RegionalBlocs.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Translations.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/data/Tuk.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/citydetails/info/InfoFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/citydetails/map/MapFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/searchcountry/SearchCountry.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/splash/SplashScreenFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/info.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/map.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_info.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_splash_screen.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7a431e4b-8987-44a3-a99c-efa6a4b11341" name="Changes" comment="navigation problem">
+      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/CountriesAndInfoData.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/JSONGetByAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/JSONGetByAPI.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/citydetails/CityDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/citydetails/CityDetails.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/adapters/CountryAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/adapters/data/CountryData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/adapters/CityAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CityData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/adapters/data/CityData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/countrydetails/CountryDetails.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetailsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetailsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/adapters/CityAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/adapters/CityAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/adapters/CountryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/adapters/CountryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/adapters/data/CityData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/adapters/data/CityData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/adapters/data/CountryData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/adapters/data/CountryData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countries/CountryViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/searchcountry/SearchViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/countrydetails/CountryDetailsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/countrydetails/CountryDetailsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/JSONGetByAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/JSONGetByAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/SecondAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/services/SecondAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/citydetails/CityDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/citydetails/CityDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/citydetails/map/MapFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/citydetails/map/MapFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/countrydetails/CountryDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/countrydetails/CountryDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/searchcountry/SearchCountry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/diplom/travelguide/ui/searchcountry/SearchCountry.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_city_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_city_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_country_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_country_details.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_country.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_country.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,9 +138,9 @@
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
-        <option value="navigationResourceFile" />
         <option value="resourceFile" />
         <option value="Kotlin File" />
+        <option value="navigationResourceFile" />
       </list>
     </option>
   </component>
@@ -230,7 +193,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/StudioProjects/TravelGuide/app/src/main/assets&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/StudioProjects/TravelGuide&quot;,
     &quot;project.structure.last.edited&quot;: &quot;SDK Location&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -258,9 +221,9 @@
       <recent name="com.diplom.travelguide.citydetails" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="com.diplom.travelguide.ui.citydetails" />
       <recent name="com.diplom.travelguide.ui.countrydetails" />
       <recent name="com.diplom.travelguide.ui.searchcountry" />
+      <recent name="com.diplom.travelguide.ui.citydetails" />
       <recent name="com.diplom.travelguide.adapters.data" />
       <recent name="com.diplom.travelguide.adapters" />
     </key>
@@ -409,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717347990383</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="navigation problem">
+      <option name="closed" value="true" />
+      <created>1718469312721</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718469312721</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -442,6 +413,7 @@
     <MESSAGE value="heap" />
     <MESSAGE value="worked but bad API" />
     <MESSAGE value="error in data class and parsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="error in data class and parsing" />
+    <MESSAGE value="navigation problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="navigation problem" />
   </component>
 </project>

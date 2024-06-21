@@ -1,7 +1,7 @@
 package com.diplom.travelguide.services
 
-import com.diplom.travelguide.adapters.data.CountryData
-import com.diplom.travelguide.adapters.data.CityData
+import com.diplom.travelguide.ui.adapters.data.CountryData
+import com.diplom.travelguide.ui.adapters.data.CityData
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

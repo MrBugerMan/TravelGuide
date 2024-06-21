@@ -1,4 +1,4 @@
-package com.diplom.travelguide.adapters.data
+package com.diplom.travelguide.ui.adapters.data
 
 
 //data class CountryData(val country: String, val flag: String):java.io.Serializable

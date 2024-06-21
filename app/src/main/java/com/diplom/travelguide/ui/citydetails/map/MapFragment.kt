@@ -39,6 +39,14 @@ class MapFragment : Fragment() {
             Animation(Animation.Type.SMOOTH, 300F),
             null
         )
+
+        // если будет scrollView
+        /*// не даём трогать скролингу карту
+        mapCity.setOnTouchListener{ v, event ->
+            // Перехватываем касания для MapView
+            binding.scrollViewMain.requestDisallowInterceptTouchEvent(true)
+            false
+        }*/
     }
 
 

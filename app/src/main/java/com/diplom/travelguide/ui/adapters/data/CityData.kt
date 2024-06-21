@@ -1,4 +1,4 @@
-package com.diplom.travelguide.adapters.data
+package com.diplom.travelguide.ui.adapters.data
 
 import com.google.gson.annotations.SerializedName
 

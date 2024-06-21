@@ -11,11 +11,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.diplom.travelguide.R
-import com.diplom.travelguide.adapters.CountryAdapter
-import com.diplom.travelguide.adapters.data.CountryData
-import com.diplom.travelguide.countries.CountryViewModel
 import com.diplom.travelguide.databinding.ActivityMainBinding
 import com.diplom.travelguide.services.data.CountryInfo
+import com.diplom.travelguide.ui.adapters.CountryAdapter
+import com.diplom.travelguide.ui.adapters.data.CountryData
 import com.diplom.travelguide.ui.countrydetails.CountryDetails
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -38,6 +37,7 @@ class SearchCountry : AppCompatActivity(){
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(R.layout.fragment_splash_screen)
+
         Handler(Looper.getMainLooper()).postDelayed({
             setContentView(view)
         }, 3000)
@@ -54,7 +54,7 @@ class SearchCountry : AppCompatActivity(){
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                CountryViewModel().filterList(newText, mList, countryAdapter) // , countryInfo,
+                SearchViewModel().filterList(newText, mList, countryAdapter) // , countryInfo,
                 return true
             }
 
@@ -70,9 +70,9 @@ class SearchCountry : AppCompatActivity(){
         recyclerView.adapter = countryAdapter
 
         // получаем данные из API (список стран и их индификатор для скачивания картинок))
-        CountryViewModel().getCountries(mList)
+        SearchViewModel().getCountries(mList)
 
-        //CountryViewModel().getCountriesInfo(this)
+        //SearchViewModel().getCountriesInfo(this)
 
         /*lifecycleScope.launch {
             getCountriesInfo()
@@ -86,7 +86,7 @@ class SearchCountry : AppCompatActivity(){
 
         }*/
 
-        //CountryViewModel().getAllCountriesAndInfo(countryInfo, mList, countryAdapter)
+        //SearchViewModel().getAllCountriesAndInfo(countryInfo, mList, countryAdapter)
         //countryAdapter.notifyDataSetChanged() // countryAdapter = CountryAdapter(mList) // и так и так не работает
 
 
