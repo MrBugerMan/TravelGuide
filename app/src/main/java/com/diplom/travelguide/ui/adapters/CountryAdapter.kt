@@ -10,15 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.diplom.travelguide.R
-import com.diplom.travelguide.ui.adapters.data.CountryData
 import com.diplom.travelguide.databinding.ItemCountryBinding
+import com.diplom.travelguide.ui.adapters.data.CountryData
 
 class CountryAdapter(
-    private var mList: ArrayList<CountryData>
-    //private var mList: ArrayList<CountriesAndInfoData>
-    //private var countryInfo: ArrayList<CountriesAndInfoData>
-) :
-    RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
+    private var countriesList: ArrayList<CountryData>
+): RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
     private var onClickListener: OnClickListener? = null
 
@@ -50,19 +47,18 @@ class CountryAdapter(
         )
     }
 
-    override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        holder.bind(mList[position])
 
-        holder.itemView.setOnClickListener {
-            if (onClickListener != null) {
-                onClickListener!!.onClick(position, mList[position])
+    override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
+        countriesList.get(position).let { countryData ->
+            holder.bind(countryData)
+
+            holder.itemView.setOnClickListener {
+                onClickListener?.onClick(position, countryData)
             }
         }
     }
 
-    override fun getItemCount(): Int {
-        return mList.size
-    }
+    override fun getItemCount() = countriesList.size
 
     fun setOnClickListener(onClickListener: OnClickListener) {
         this.onClickListener = onClickListener
@@ -73,9 +69,10 @@ class CountryAdapter(
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setFilteredList(mList: ArrayList<CountryData>) { // mList: ArrayList<CountriesAndInfoData>
-        this.mList = mList as ArrayList<CountryData> //  as ArrayList<CountriesAndInfoData>
+    fun updateData(newList: ArrayList<CountryData>) {
+        countriesList = newList
         notifyDataSetChanged()
     }
+
 
 }

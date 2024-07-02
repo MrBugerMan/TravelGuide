@@ -1,6 +1,7 @@
 package com.diplom.travelguide.services
 
 import com.diplom.travelguide.ui.adapters.data.CityData
+import com.diplom.travelguide.ui.adapters.data.CountryData
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,11 +16,16 @@ private val retrofitNew = Retrofit.Builder()
     .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .baseUrl(BASE_URL)
     .build()
+
 interface SecondServiceInterface{
 
     @Headers("X-CSCAPI-KEY: $API_KEY")
     @GET("v1/countries/{countryCode}/cities")
     suspend fun getCities2(@Path("countryCode") countryCode: String): ArrayList<CityData>
+
+    @Headers("X-CSCAPI-KEY: $API_KEY")
+    @GET("v1/countries")
+    suspend fun getCountries(): ArrayList<CountryData>
 }
 
 object SecondApiService {
